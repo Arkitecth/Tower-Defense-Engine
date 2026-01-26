@@ -349,7 +349,7 @@ void GuiWindowFileDialog(GuiWindowFileDialogState *state)
 
         // Draw bottom controls
         //--------------------------------------------------------------------------------------
-        GuiLabel((Rectangle){ state->windowBounds.x + 8, state->windowBounds.y + state->windowBounds.height - 68, 60, 24 }, "File name:");
+        GuiLabel((Rectangle){ state->windowBounds.x + 8, state->windowBounds.y + state->windowBounds.height - 68, 68, 24 }, "File name:");
         if (GuiTextBox((Rectangle){ state->windowBounds.x + 72, state->windowBounds.y + state->windowBounds.height - 68, state->windowBounds.width - 184, 24 }, state->fileNameText, 128, state->fileNameEditMode))
         {
             if (*state->fileNameText)

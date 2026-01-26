@@ -1,7 +1,8 @@
-#include "iostream"
+#include "raygui.h"
 #include "raylib.h"
 #define RAYGUI_IMPLEMENTATION
 #define GUI_WINDOW_FILE_DIALOG_IMPLEMENTATION
+#include "editor.h"
 #include "fileDialog.h"
 
 int main() 
@@ -9,11 +10,13 @@ int main()
 	int screenWidth = 800;
 	int screenHeight = 560;
 	SetConfigFlags(FLAG_WINDOW_HIGHDPI); 
-	InitWindow(screenWidth, screenHeight, "raygui - custom modal dialog");
+	InitWindow(screenWidth, screenHeight, "Tower Defense");
 	SetExitKey(0);
 
-	    // Custom file dialog
+	Editor editor{}; 
 	GuiWindowFileDialogState fileDialogState = InitGuiWindowFileDialog(GetWorkingDirectory());
+
+	//UI and Functionality
 
 	bool exitWindow = false;
 
@@ -22,9 +25,11 @@ int main()
 	Texture texture = { 0 };
 
 	SetTargetFPS(60);
-	    //--------------------------------------------------------------------------------------
 
-	    // Main game loop
+	GuiSetStyle(DEFAULT, TEXT_SIZE, 13); 
+	//--------------------------------------------------------------------------------------
+
+	// Main game loop
 	while (!exitWindow)    // Detect window close button or ESC key
 	{
 		// Update
@@ -43,6 +48,8 @@ int main()
 
 		    fileDialogState.SelectFilePressed = false;
 		}
+
+		editor.loadLevel();
 		//----------------------------------------------------------------------------------
 
 		// Draw
@@ -50,17 +57,16 @@ int main()
 		BeginDrawing();
 
 		    ClearBackground(GetColor(GuiGetStyle(DEFAULT, BACKGROUND_COLOR)));
-
-		    DrawTexture(texture, GetScreenWidth()/2 - texture.width/2, GetScreenHeight()/2 - texture.height/2 - 5, WHITE);
-		    DrawRectangleLines(GetScreenWidth()/2 - texture.width/2, GetScreenHeight()/2 - texture.height/2 - 5, texture.width, texture.height, BLACK);
-
-		    DrawText(fileNameToLoad, 208, GetScreenHeight() - 20, 10, GRAY);
+		    Rectangle src{0, 0, float(texture.width), float(texture.height)};  
+		    Rectangle dst{0, 0, float(GetScreenWidth()), float(GetScreenHeight())};
+		    DrawTexturePro(texture, src, dst, Vector2{0,0}, 0, RAYWHITE); 
 
 		    // raygui: controls drawing
 		    //----------------------------------------------------------------------------------
 		    if (fileDialogState.windowActive) GuiLock();
 
-		    if (GuiButton((Rectangle){ 20, 20, 140, 30 }, GuiIconText(ICON_FILE_OPEN, "Open Image"))) fileDialogState.windowActive = true;
+
+		    if (GuiButton((Rectangle){20, 20, 140, 30 }, GuiIconText(ICON_FILE_OPEN, "Open Image"))) fileDialogState.windowActive = true;
 
 		    GuiUnlock();
 
@@ -70,6 +76,7 @@ int main()
 		    //--------------------------------------------------------------------------------
 
 		    //----------------------------------------------------------------------------------
+		    editor.draw(); 
 
 		EndDrawing();
 		//----------------------------------------------------------------------------------
