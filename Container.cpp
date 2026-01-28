@@ -22,7 +22,10 @@ Container::Container(float new_width, float new_height, Vector2 new_position, Co
 
 void Container::draw()
 {
-    DrawRectangle(position.x, position.y, width, height, color); 
+    for(int i = 0; i < widgets.size(); i++)
+    {
+	widgets[i]->draw(); 
+    }
 }
 
 
