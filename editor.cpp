@@ -10,8 +10,8 @@ void Editor::loadLevel()
 
 Editor::Editor()
 {
-    DropdownWidget* widget = new DropdownWidget{Vector2{150, 100}}; 
-    Button* button = new Button{"Button 1", Vector2{100, 100}, 75, 75}; 
+    DropdownWidget* widget = new DropdownWidget{Vector2{150, 100}, "level_dropdown"}; 
+    Button* button = new Button{"Button 1", "add_level", Vector2{100, 100}, 75, 75}; 
     Container menu{100, float(GetScreenHeight()), Vector2{0, 0}, BLANK}; 
     menu.addWidgetToContainer(widget); 
     menu.addWidgetToContainer(button); 
@@ -21,7 +21,8 @@ Editor::Editor()
 
 void Editor::addLevel()
 {
-
+    // const Button* button = dynamic_cast<const Button*>(containers[0].getWidgetFromContainer("add_level")); 
+    // const DropdownWidget* dropdown= dynamic_cast<const DropdownWidget*>(containers[0].getWidgetFromContainer("")); 
 }
 
 

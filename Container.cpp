@@ -34,4 +34,16 @@ void Container::addWidgetToContainer(Widget* widget)
     widgets.push_back(widget); 
 }
 
+Widget* Container::getWidgetFromContainer(const std::string tag)
+{
+    for(int i = 0; i < widgets.size(); i++)
+    {
+	if (widgets[i]->tag == tag) {
+	    return widgets[i]; 
+	}
+    }
+	return nullptr; 
+
+}
+
 

@@ -9,7 +9,7 @@ struct DropdownWidget: public Widget
     bool isActive{}; 
     int selectedItem{}; 
     DropdownWidget(); 
-    DropdownWidget(Vector2 new_position); 
+    DropdownWidget(Vector2 new_position, std::string new_tag); 
     void draw(); 
 }; 
 

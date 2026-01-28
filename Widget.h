@@ -7,8 +7,9 @@ struct Widget
 {
     Vector2 position; 
     std::string type; 
+    std::string tag; 
     Widget(); 
-    Widget(Vector2 new_position, std::string new_type); 
+    Widget(Vector2 new_position, std::string new_type, std::string new_tag); 
     virtual void draw() = 0; 
 }; 
 

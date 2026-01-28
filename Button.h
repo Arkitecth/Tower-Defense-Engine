@@ -9,7 +9,7 @@ struct Button : public Widget
     int width; 
     int height; 
     Button(); 
-    Button(std::string new_text, Vector2 new_position, int new_width, int new_height); 
+    Button(std::string new_text, std::string tag, Vector2 new_position, int new_width, int new_height); 
     void draw(); 
 }; 
 

@@ -16,6 +16,7 @@ struct Container
     Container(float new_width, float new_height, Vector2 new_position, Color new_color); 
     void draw(); 
     void addWidgetToContainer(Widget* widget); 
+    Widget* getWidgetFromContainer(const std::string tag); 
 }; 
 
 #endif

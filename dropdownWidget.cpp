@@ -2,9 +2,10 @@
 #include "raygui.h"
 #include "raylib.h"
 
-DropdownWidget::DropdownWidget(Vector2 new_position)
+DropdownWidget::DropdownWidget(Vector2 new_position, std::string new_tag)
 {
 	position = new_position; 
+	tag = new_tag; 
 	isActive = false; 
 	selectedItem = 0; 
 	type = "dropdown"; 
