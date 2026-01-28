@@ -1,14 +1,14 @@
 #include "Button.h"
 #include "raylib.h"
 #include "raygui.h"
-#include "iostream"
-
 
 Button::Button()
 {
     text = ""; 
     type = button_type; 
     tag = ""; 
+    width = 0; 
+    height = 0; 
     position = Vector2{0,0};
 }
 

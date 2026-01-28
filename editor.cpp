@@ -10,7 +10,7 @@ void Editor::loadLevel()
 
 Editor::Editor()
 {
-    DropdownWidget* widget = new DropdownWidget{Vector2{150, 100}, "level_dropdown"}; 
+    LevelDropdownWidget* widget = new LevelDropdownWidget{Vector2{150, 100}}; 
     Button* button = new Button{"Button 1", "add_level", Vector2{100, 100}, 75, 75}; 
     Container menu{100, float(GetScreenHeight()), Vector2{0, 0}, BLANK}; 
     menu.addWidgetToContainer(widget); 

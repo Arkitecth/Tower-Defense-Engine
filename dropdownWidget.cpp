@@ -1,17 +1,17 @@
 #include "DropdownWidget.h"
+#include "Levels.h"
 #include "raygui.h"
 #include "raylib.h"
 
-DropdownWidget::DropdownWidget(Vector2 new_position, std::string new_tag)
+LevelDropdownWidget::LevelDropdownWidget(Vector2 new_position) 
 {
 	position = new_position; 
-	tag = new_tag; 
 	isActive = false; 
 	selectedItem = 0; 
 	type = "dropdown"; 
 }
 
-DropdownWidget::DropdownWidget()
+LevelDropdownWidget::LevelDropdownWidget()
 {
     position = Vector2{0, 0};
     isActive = false;
@@ -19,13 +19,27 @@ DropdownWidget::DropdownWidget()
     type = "dropdown"; 
 }
 
-void DropdownWidget::draw()
+void LevelDropdownWidget::draw()
 {
     int* selectedIndex = &selectedItem; 
+    std::string levelString = ""; 
+    for(int i = 0; i < levels.size(); i++)
+    {
+	if (levels[i].name != "") 
+	{
+	    levelString += levels[i].name + ";";
+	}
+    }
     Rectangle bounds{position.x, position.y, 100, 30}; 
-    int result = GuiDropdownBox(bounds, "Levels;Second;Three;Four;Five", selectedIndex, isActive);
+    int result = GuiDropdownBox(bounds, levelString.c_str(), selectedIndex, isActive);
     if (result == 1) {
 	isActive = !isActive;
     }
+}
+
+
+void LevelDropdownWidget::addToDropdown(Level level)
+{
+    levels.push_back(level); 
 }
 
