@@ -1,5 +1,8 @@
-#include "editor.h"
-#include "dropdownWidget.h"
+#include "Container.h"
+#include "DropdownWidget.h"
+#include "raylib.h"
+#include "Editor.h"
+
 void Editor::loadLevel()
 {
 }
@@ -7,7 +10,9 @@ void Editor::loadLevel()
 Editor::Editor()
 {
     DropdownWidget widget{Vector2{150, 100}}; 
-    m_widget = widget; 
+    Container menu{100, float(GetScreenHeight()), Vector2{0, 0}, BLANK}; 
+    menu.addWidgetToContainer(&widget); 
+    containers.push_back(menu); 
 }
 
 
@@ -19,5 +24,5 @@ void Editor::addLevel()
 
 void Editor::draw()
 {
-    m_widget.draw(); 
+    containers[0].draw(); 
 }

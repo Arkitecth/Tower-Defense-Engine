@@ -2,8 +2,8 @@
 #include "raylib.h"
 #define RAYGUI_IMPLEMENTATION
 #define GUI_WINDOW_FILE_DIALOG_IMPLEMENTATION
-#include "editor.h"
-#include "fileDialog.h"
+#include "Editor.h"
+#include "FileDialog.h"
 
 int main() 
 {
@@ -49,7 +49,6 @@ int main()
 		    fileDialogState.SelectFilePressed = false;
 		}
 
-		editor.loadLevel();
 		//----------------------------------------------------------------------------------
 
 		// Draw

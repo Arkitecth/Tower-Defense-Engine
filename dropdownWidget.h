@@ -1,11 +1,11 @@
 #ifndef __DROPDOWN_WIDGET__H__
 #define __DROPDOWN_WIDGET__H__
+#include "Widget.h"
 #include "raylib.h"
 #include <vector>
 
-struct DropdownWidget
+struct DropdownWidget: public Widget
 {
-    Vector2 m_position{}; 
     bool isActive{}; 
     int selectedItem{}; 
     DropdownWidget(); 
