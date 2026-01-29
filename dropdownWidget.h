@@ -1,14 +1,13 @@
 #ifndef __DROPDOWN_WIDGET__H__
 #define __DROPDOWN_WIDGET__H__
 #include "Levels.h"
-#include "Widget.h"
 #include "raylib.h"
 #include <vector>
 
-struct LevelDropdownWidget: public Widget
-{
+struct LevelDropdownWidget { 
     bool isActive{}; 
     int selectedItem{}; 
+    Vector2 position; 
     LevelDropdownWidget(); 
     LevelDropdownWidget(Vector2 new_position); 
     std::vector<Level> levels{}; 

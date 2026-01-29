@@ -8,7 +8,6 @@ LevelDropdownWidget::LevelDropdownWidget(Vector2 new_position)
 	position = new_position; 
 	isActive = false; 
 	selectedItem = 0; 
-	type = "dropdown"; 
 }
 
 LevelDropdownWidget::LevelDropdownWidget()
@@ -16,7 +15,6 @@ LevelDropdownWidget::LevelDropdownWidget()
     position = Vector2{0, 0};
     isActive = false;
     selectedItem = 0;
-    type = "dropdown"; 
 }
 
 void LevelDropdownWidget::draw()

@@ -1,17 +1,16 @@
 #ifndef __EDITOR__H__
 #define __EDITOR__H__
-#include "Container.h"
-#include "DropdownWidget.h"
+#include "LoadLevelButton.h"
 #include <vector>
-
 struct Editor 
 {
     bool isActive{}; 
-    std::vector<Container> containers{}; 
+    LoadLevelButton button; 
     Editor(); 
     void loadLevel(); 
     void addLevel(); 
     void draw(); 
+    void update(); 
 }; 
 
 

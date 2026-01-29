@@ -38,7 +38,6 @@
 **********************************************************************************************/
 
 #include "raylib.h"
-
 #ifndef GUI_WINDOW_FILE_DIALOG_H
 #define GUI_WINDOW_FILE_DIALOG_H
 
@@ -116,7 +115,6 @@ void GuiWindowFileDialog(GuiWindowFileDialogState *state);
 *
 ************************************************************************************/
 #if defined(GUI_WINDOW_FILE_DIALOG_IMPLEMENTATION)
-
 #include "raygui.h"
 
 #include <string.h>     // Required for: strcpy()
