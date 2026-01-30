@@ -20,15 +20,25 @@ LevelDropdownWidget::LevelDropdownWidget()
 void LevelDropdownWidget::draw()
 {
     int* selectedIndex = &selectedItem; 
-    std::string levelString = ""; 
+    std::string levelString = default_label; 
+    if (levels.size() != 0) {
+	levelString = ""; // Clear Default Label With Actual Level Value
+    }
+
     for(int i = 0; i < levels.size(); i++)
     {
-	if (levels[i].name != "") 
+	if (levelString != default_label) 
 	{
 	    levelString += levels[i].name + ";";
 	}
     }
-    Rectangle bounds{position.x, position.y, 100, 30}; 
+
+    if(levelString[levelString.size() - 1] == ';')
+    {
+	levelString.pop_back(); 
+    }
+
+    Rectangle bounds{position.x, position.y, 200, 30}; 
     int result = GuiDropdownBox(bounds, levelString.c_str(), selectedIndex, isActive);
     if (result == 1) {
 	isActive = !isActive;

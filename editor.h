@@ -14,8 +14,6 @@ struct Editor
     Texture2D texture; 
     std::vector<Level> levels; 
     Editor(); 
-    void loadLevel(); 
-    void addLevel(); 
     void draw(); 
     void update(); 
 }; 

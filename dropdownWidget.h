@@ -4,6 +4,8 @@
 #include "raylib.h"
 #include <vector>
 
+const std::string default_label = "Select an Option";
+
 struct LevelDropdownWidget { 
     bool isActive{}; 
     int selectedItem{}; 
