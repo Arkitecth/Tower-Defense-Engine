@@ -17,16 +17,21 @@ void Editor::addLevel()
 {
 
 }
+
+
 void Editor::update()
 {
     button.update(); 
 }
+
 
 void Editor::draw()
 {
     if (button.fileNameToLoad[0] != 0) {
 	if (fileName != button.fileNameToLoad) {
 	    texture = LoadTexture(button.fileNameToLoad); 
+	    Level level{"Level 1", button.fileNameToLoad, texture};
+	    levels.push_back(level); 
 	    fileName = button.fileNameToLoad; 
 	}
 	Rectangle src{0, 0, float(texture.width), float(texture.height)};  
