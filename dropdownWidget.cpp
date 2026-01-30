@@ -35,9 +35,17 @@ void LevelDropdownWidget::draw()
     }
 }
 
+void LevelDropdownWidget::drawLevel()
+{
+    if (levels.size() != 0) {
+	levels[selectedItem].draw(); 
+    }
+}
+
 
 void LevelDropdownWidget::addToDropdown(Level level)
 {
     levels.push_back(level); 
 }
+
 

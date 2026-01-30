@@ -31,3 +31,11 @@ void Level::setTexture(Texture2D new_texture)
 {
     texture = new_texture; 
 }
+
+
+void Level::draw()
+{
+	Rectangle src{0, 0, float(texture.width), float(texture.height)};  
+	Rectangle dst{0, 0, float(GetScreenWidth()), float(GetScreenHeight())};
+	DrawTexturePro(texture, src, dst, Vector2{0,0}, 0, RAYWHITE); 
+}

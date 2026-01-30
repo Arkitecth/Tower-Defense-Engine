@@ -12,6 +12,7 @@ struct Level
     void setName(std::string new_name); 
     void setFilePath(std::string new_filepath); 
     void setTexture(Texture2D new_texture); 
+    void draw(); 
 }; 
 
 

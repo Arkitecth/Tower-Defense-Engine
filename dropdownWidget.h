@@ -12,6 +12,7 @@ struct LevelDropdownWidget {
     LevelDropdownWidget(Vector2 new_position); 
     std::vector<Level> levels{}; 
     void addToDropdown(Level level); 
+    void drawLevel(); 
     void draw(); 
 }; 
 
