@@ -7,11 +7,13 @@
 const std::string widget_type = "button"; 
 struct LoadLevelButton 
 {
-    std::string text; 
+    std::string text{}; 
     Vector2 position; 
-    float width; 
-    float height; 
+    float width{}; 
+    float height{}; 
     char fileNameToLoad[256] {0}; 
+    char levelsName[256] {0};  
+    bool isTextBoxActive{};
     GuiWindowFileDialogState fileDialogState;
     LoadLevelButton(); 
     LoadLevelButton(std::string new_text,Vector2 new_position, int new_width, int new_height); 

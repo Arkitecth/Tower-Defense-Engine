@@ -1,3 +1,5 @@
+#include "raylib.h"
+#include <iostream>
 #define RAYGUI_IMPLEMENTATION
 #include "raygui.h"
 #undef RAYGUI_IMPLEMENTATION
@@ -27,9 +29,29 @@ void LoadLevelButton::draw()
     int result = GuiButton(bound, GuiIconText(ICON_FILE_OPEN, text.c_str()));
     if (result == 1) 
     {
-	fileDialogState.windowActive = true; 
+	isTextBoxActive = true;
     }
-    GuiWindowFileDialog(&fileDialogState);
+    if (isTextBoxActive) 
+    {
+	Rectangle bound = {position.x, position.y, float(width), float(height)}; 
+	Rectangle inputBox = {position.x, position.y, 300, 300};
+	bool* p_secretView = nullptr;
+	int result = GuiTextInputBox(inputBox, "Level Name", "Enter Level Name", "Save;Cancel", levelsName, 20, p_secretView); 
+	if(result == 2)
+	{
+	    isTextBoxActive = false;
+	} 
+	else if (result == 1) 
+	{
+	    std::cout << "Save Button was clicked" << '\n';
+	    isTextBoxActive = false;
+	    fileDialogState.windowActive = true;
+	}
+	else if (result == 0) {
+	    isTextBoxActive = false;
+	}
+    }
+	GuiWindowFileDialog(&fileDialogState);
 }
 
 void LoadLevelButton::update()
